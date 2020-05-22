@@ -1,0 +1,15 @@
+name: 'generate-changelog'
+description: 'This action handles generating a new changelog based on git-chglog https://github.com/git-chglog/git-chglog'
+inputs:
+  file:
+    description: 'The path and name to where you want the changelog output'
+    required: true
+  next_tag:
+    description: "Unrelease items will be put under this tag"
+runs:
+  using: 'docker'
+  #image: 'Dockerfile'
+  image: "docker://delmendo/generate-changelog:latest"
+  args:
+    - ${{ inputs.file }}
+    - ${{ inputs.next_tag }}
