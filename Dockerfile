@@ -5,10 +5,10 @@ RUN apk update && apk add --no-cache git
 RUN go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
 
 
-FROM scratch
+FROM alpine:3.11
 # Copy our static executable.
-COPY --from=builder /go/bin/git-chglog /go/bin/git-chglog
+COPY --from=builder /go/bin/git-chglog /bin/git-chglog
 
-
+RUN apk add --no-cache  bash
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
