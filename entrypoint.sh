@@ -11,4 +11,4 @@ if [[ -z "${INPUT_NEXT_TAG}" ]]; then
     NEXT_TAG="--next-tag ${INPUT_NEXT_TAG}"
 fi
 
-/bin/git-chglog --ouput ${INPUT_FILE} ${NEXT_TAG}
+/bin/git-chglog --output ${INPUT_FILE} ${NEXT_TAG}
