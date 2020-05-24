@@ -9,6 +9,6 @@ FROM alpine:3.11
 # Copy our static executable.
 COPY --from=builder /go/bin/git-chglog /bin/git-chglog
 
-RUN apk add --no-cache  bash
+RUN apk add --no-cache  bash git
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
