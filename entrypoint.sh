@@ -11,4 +11,8 @@ if [[ -z "${INPUT_NEXT_TAG}" ]]; then
     NEXT_TAG="--next-tag ${INPUT_NEXT_TAG}"
 fi
 
+git-tag() {
+ git tag
+}
+export -f git-tag
 /bin/git-chglog --output ${INPUT_FILE} ${NEXT_TAG}
