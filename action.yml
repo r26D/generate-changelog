@@ -6,6 +6,11 @@ inputs:
     required: true
   next_tag:
     description: "Unrelease items will be put under this tag"
+  experimental:
+    description: 'This turns on an experimental version of git-chglog with more features (and potentially more bugs)'
+    default: false
+  additional_args:
+    description: "These arguments are passed on to the git-chglog command"
 runs:
   using: 'docker'
   #image: 'Dockerfile'
