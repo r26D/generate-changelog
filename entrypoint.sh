@@ -10,5 +10,14 @@ if [[ -z "${INPUT_NEXT_TAG}" ]]; then
   else
   NEXT_TAG="--next-tag ${INPUT_NEXT_TAG}"
 fi
+if [[ -z "${INPUT_EXPERIMENTAL}" ]]; then
+  EXPERIMENTAL="false"
+  else
+  EXPERIMENTAL="${INPUT_EXPERIMENTAL}"
+fi
 
-/bin/git-chglog --output ${INPUT_FILE} ${NEXT_TAG}
+if [[ "${EXPERIMENTAL}" == "true" ]]; then
+/bin/experimental-git-chglog --output ${INPUT_FILE} ${NEXT_TAG} ${INPUT_ADDITIONAL_ARGS}
+else
+/bin/git-chglog --output ${INPUT_FILE} ${NEXT_TAG} ${INPUT_ADDITIONAL_ARGS}
+fi
