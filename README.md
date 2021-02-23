@@ -1,5 +1,7 @@
 # generate-changelog
 
+Updating to the current version of both chglog binaries
+
 This action handles generating a new changelog based on (git-chglog)[https://github.com/git-chglog/git-chglog]
 ## Inputs
 
